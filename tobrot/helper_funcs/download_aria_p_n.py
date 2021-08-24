@@ -325,12 +325,12 @@ async def check_progress_for_dl(aria2, gid, event, previous_message):
                 # await check_progress_for_dl(aria2, gid, event, previous_message)
             else:
                 LOGGER.info(
-                    f"Downloaded Successfully ✔ \n📁Filename: `{file.name}` \n📬Size: `({file.total_length_string()})` "
+                    f"Downloaded Successfully ✔ \n\n📁Filename: `{file.name}` \n\n📬Size: `({file.total_length_string()})` "
                 )
                 # await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
                 if not file.is_metadata:
                     await event.edit(
-                        f"Downloaded Successfully ✔ \n📁Filename: `{file.name}` \n📬Size: `({file.total_length_string()})`"
+                        f"Downloaded Successfully ✔ \n\n📁Filename: `{file.name}` \n\n📬Size: `({file.total_length_string()})`"
                     )
                 return
         except aria2p.client.ClientException:
