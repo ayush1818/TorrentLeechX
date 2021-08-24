@@ -54,7 +54,7 @@ async def incoming_message_f(client, message):
     user_command = message.command[0]
     g_id = message.from_user.id
     credit = await message.reply_text(
-        f"🧲 Leeching for you <a href='tg://user?id={g_id}'>🤕</a>", parse_mode="html"
+        f"🧲 Leeching for you <a href='tg://user?id={g_id}'>👀</a>", parse_mode="html"
     )
     # get link from the incoming message
     i_m_sefg = await message.reply_text("processing...", quote=True)
@@ -82,7 +82,7 @@ async def incoming_message_f(client, message):
         LOGGER.info(dl_url)
 
     else:
-        await i_m_sefg.edit("👺𝙉𝙤 𝙙𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙞𝙣𝙜 𝙨𝙤𝙪𝙧𝙘𝙚 𝙥𝙧𝙤𝙫𝙞𝙙𝙚𝙙👺")
+        await i_m_sefg.edit("⚔𝙉𝙤 𝙙𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙞𝙣𝙜 𝙨𝙤𝙪𝙧𝙘𝙚 𝙥𝙧𝙤𝙫𝙞𝙙𝙚𝙙⚔")
         return
     if dl_url is not None:
 
@@ -294,10 +294,10 @@ async def rename_tg_file(client, message):
                 message_to_send += "\n"
             if message_to_send != "":
                 mention_req_user = (
-                    f"<a href='tg://user?id={usr_id}'>Your Requested Files</a>\n\n"
+                    f"<a href='tg://user?id={usr_id}'><b>📂Your Requested Files</a>\n\n"
                 )
                 message_to_send = mention_req_user + message_to_send
-                message_to_send = message_to_send + "\n\n" + "#uploads"
+                message_to_send = message_to_send + "\n\n" + "®️Powered By :- Ayush LeechX"
             else:
                 message_to_send = "<i>FAILED</i> to upload files. 😞😞"
             await message.reply_text(
@@ -308,5 +308,5 @@ async def rename_tg_file(client, message):
 
     else:
         await message.reply_text(
-            "😔 Provide new name of the file with extension 😐", quote=True
+            "Provide new name of the file with extension 😐", quote=True
         )
