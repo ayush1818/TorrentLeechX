@@ -325,17 +325,17 @@ async def check_progress_for_dl(aria2, gid, event, previous_message):
                 # await check_progress_for_dl(aria2, gid, event, previous_message)
             else:
                 LOGGER.info(
-                    f"Downloaded Successfully: `{file.name} ({file.total_length_string()})` 🤒"
+                    f"Downloaded Successfully ✔ \n📁Filename: `{file.name}` \n📬Size: `({file.total_length_string()})` "
                 )
                 # await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
                 if not file.is_metadata:
                     await event.edit(
-                        f"Downloaded Successfully: `{file.name} ({file.total_length_string()})` 🤒"
+                        f"Downloaded Successfully ✔ \n📁Filename: `{file.name}` \n📬Size: `({file.total_length_string()})`"
                     )
                 return
         except aria2p.client.ClientException:
             await event.reply(
-                f"Download cancelled :\n<code>{file.name} ({file.total_length_string()})</code>", quote=True
+                f"Download cancelled ❌ :\n<code>{file.name} ({file.total_length_string()})</code>", quote=True
             )
             return
         except MessageNotModified as ep:
@@ -350,7 +350,7 @@ async def check_progress_for_dl(aria2, gid, event, previous_message):
             LOGGER.info(str(e))
             if "not found" in str(e) or "'file'" in str(e):
                 await event.edit(
-                    f"Download cancelled :\n<code>{file.name} ({file.total_length_string()})</code>"
+                    f"Download cancelled ❌ :\n<code>{file.name} ({file.total_length_string()})</code>"
                 )
                 return
             else:
